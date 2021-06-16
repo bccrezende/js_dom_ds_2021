@@ -193,3 +193,13 @@ body {
   background-color: #0f88ff;
   color: white;
 }   
+
+/* Style the checkbox */
+.checkbox{
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.done{
+  text-decoration: line-through;
+}

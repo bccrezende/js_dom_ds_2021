@@ -12,10 +12,20 @@
         return botaoDelete;
     }
 
+    function criarCheckbox(){
+        const checkBox = document.createElement('input')
+        checkBox.setAttribute("type", "checkbox");
+        checkBox.classList = "checkbox"
+
+        checkBox.addEventListener('click', concluirTarefa)
+
+        return checkBox;
+    }
+
     function criarTarefa(evento){
         evento.preventDefault()
 
-        const valorTarefa = inputTarefa.value
+        const valorTarefa = " - " + inputTarefa.value
         const listaDeTarefas = document.querySelector('[data-task]')
 
         novaLabel = document.createElement('label')
@@ -23,6 +33,7 @@
         novaLabel.className = "form-check-label"
 
         novoItem = document.createElement('li')
+        novoItem.appendChild(criarCheckbox())
         novoItem.appendChild(novaLabel)
         novoItem.appendChild(criarBotaoDelete())
 
@@ -35,10 +46,13 @@
     function deletarTarefa(evento){
         const BotaoDeletarClicado = evento.target
         const TarefaDeletar = BotaoDeletarClicado.parentElement
-        console.log(TarefaDeletar)
         TarefaDeletar.remove()
-        
-        console.log('vamos deletar a tarefa?')
+    }
+
+    function concluirTarefa(evento){
+        const checkboxClicado = evento.target
+        const TarefaConcluida = checkboxClicado.parentElement
+        TarefaConcluida.classList.toggle('done')
     }
 
     novaTarefa.addEventListener('click', criarTarefa)

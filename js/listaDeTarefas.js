@@ -9,14 +9,13 @@
 
         botaoDelete.addEventListener('click', deletarTarefa)
         
-        console.log(botaoDelete)
-
         return botaoDelete
     }
 
-    function deletarTarefa(){
-        
-        console.log('Por favor, delete essa tarefa')
+    function deletarTarefa(evento){
+        const botaoDeleteClicado = evento.target
+        const itemDaLista = botaoDeleteClicado.parentElement
+        itemDaLista.remove()
     }
 
     function criarTarefa(evento){

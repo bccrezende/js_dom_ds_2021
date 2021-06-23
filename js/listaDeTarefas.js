@@ -11,6 +11,14 @@
         
         return botaoDelete
     }
+    
+    function criarBotaoConcluir(){
+        const botaoConcluir = document.createElement('input')
+        botaoConcluir.setAttribute('type', 'checkbox')
+        botaoConcluir.classList = 'form-check-input'
+
+        return botaoConcluir
+    }
 
     function deletarTarefa(evento){
         const botaoDeleteClicado = evento.target
@@ -29,6 +37,8 @@
         novaLabel.className = "form-check-label"
 
         novoItem = document.createElement('li')
+ 
+        novoItem.appendChild(criarBotaoConcluir())
         novoItem.appendChild(novaLabel)
         novoItem.appendChild(criarBotaoDelete())
         

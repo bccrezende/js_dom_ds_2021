@@ -17,13 +17,22 @@
         botaoConcluir.setAttribute('type', 'checkbox')
         botaoConcluir.classList = 'form-check-input'
 
+        botaoConcluir.addEventListener('click', concluirTarefa)
+
         return botaoConcluir
     }
-
+    
     function deletarTarefa(evento){
         const botaoDeleteClicado = evento.target
         const itemDaLista = botaoDeleteClicado.parentElement
         itemDaLista.remove()
+    }
+
+    function concluirTarefa(evento){
+        console.log("chamei a função concluir Tarefa")
+        const botaoConcluirClicado = evento.target
+        const itemDaListaConcluido = botaoConcluirClicado.parentElement
+        itemDaListaConcluido.classList.toggle('tarefa_concluida')
     }
 
     function criarTarefa(evento){
